@@ -10,23 +10,74 @@
 
 ## 怎么开始？
 
-### 30 秒安装
+> Skill 是 App，工作区是你的数据库——**两个文件夹分开**，更新 Skill 不会丢档案。  
+> Skill 装在哪：`~/.claude/skills/muyang-life-coach-skill/` 或 `~/.cursor/skills/muyang-life-coach-skill/` · 数据放哪：例如 `~/LifeCoach/`（你自定）
+
+### 方式一：一行命令（推荐）
+
+**Claude Code + Cursor 一起装：**
 
 ```bash
 npx skills add https://github.com/itsMelo/muyang-life-coach-skill --skill muyang-life-coach-skill -g -a cursor -a claude-code -y
 ```
 
-也可以把 **[INSTALL.md](./INSTALL.md)** 里的「发给 AI Agent」整段复制给 Cursor / Claude Code，让它自动安装 Skill 并告诉你打开哪个工作区文件夹。
+**仅 Claude Code：**
 
-> 详见 [INSTALL.md](./INSTALL.md)。
+```bash
+npx skills add https://github.com/itsMelo/muyang-life-coach-skill --skill muyang-life-coach-skill -g -a claude-code -y
+```
+
+**仅 Cursor：**
+
+```bash
+npx skills add https://github.com/itsMelo/muyang-life-coach-skill --skill muyang-life-coach-skill -g -a cursor -y
+```
+
+安装后重启 IDE，或新开 Agent 会话。
+
+### 方式二：发给 AI Agent（复制整段）
+
+把下面这段话直接发给 **Cursor / Claude Code**（需有 shell 权限）：
+
+```text
+帮我安装 muyang-life-coach-skill skill。
+
+1. 用 git clone 安装到 Claude Code 与 Cursor 的全局 skills 目录（目录不存在则创建）：
+   git clone https://github.com/itsMelo/muyang-life-coach-skill.git ~/.claude/skills/muyang-life-coach-skill
+   若 ~/.cursor/skills/muyang-life-coach-skill 不存在或与上面不是同一目录，则：
+   mkdir -p ~/.cursor/skills
+   ln -sfn ~/.claude/skills/muyang-life-coach-skill ~/.cursor/skills/muyang-life-coach-skill
+   （若 symlink 不可用，则再 clone 一份到 ~/.cursor/skills/muyang-life-coach-skill）
+
+2. 验证 Skill 安装成功，以下路径必须存在：
+   SKILL.md
+   references/
+   scripts/init-workspace.sh
+   VERSION
+
+3. 创建工作区文件夹（与 Skill 目录分开）：
+   mkdir -p ~/LifeCoach
+   告诉用户：用 IDE 打开 ~/LifeCoach，attach muyang-life-coach-skill，说「我想用 life coach，帮我建档」即可——Skill 会自动初始化工作区，不必手动跑 init-workspace.sh。
+
+4. 告诉我：Skill 装好了、工作区路径是 ~/LifeCoach、当前 VERSION 文件内容。
+```
+
+### 方式三：手动命令行
+
+```bash
+git clone https://github.com/itsMelo/muyang-life-coach-skill.git ~/.claude/skills/muyang-life-coach-skill
+mkdir -p ~/.cursor/skills
+ln -sfn ~/.claude/skills/muyang-life-coach-skill ~/.cursor/skills/muyang-life-coach-skill
+```
 
 ### 第一次使用
 
-1. 用 IDE **打开工作区文件夹**（例如 `~/LifeCoach`，不是 skill 安装目录）。
-2. 对 AI 说：**「我想用 life coach，帮我建档」**——回答大约 17 个问题，让 AI 知道你是谁。
-3. 之后像聊天一样即可；可以说 **「周回顾」**、**「检查上次行为」**。
+1. 新建并用 IDE **打开工作区文件夹**（例如 `~/LifeCoach`，**不是** skill 安装目录）。
+2. Attach **muyang-life-coach-skill** skill（Cursor）或在 Claude Code 中确保 skill 已加载。
+3. 对 AI 说：**「我想用 life coach，帮我建档」**——回答大约 17 个问题，让 AI 知道你是谁。
+4. 之后像聊天一样即可；可以说 **「周回顾」**、**「检查上次行为」**。
 
-完整步骤、更新方式、迁移说明见 **[INSTALL.md](./INSTALL.md)**。
+更新 Skill、迁移、FAQ 见 **[INSTALL.md](./INSTALL.md)**。
 
 ---
 
