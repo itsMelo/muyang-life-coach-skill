@@ -1,0 +1,20 @@
+# 行为实验账本 — 由 muyang-life-coach-skill 在每次 Conclude 时追加/更新
+# type: behavior_experiment | implementation_intention | behavior_activation | defusion | precise_question | reframe
+# status: pending | done | skipped | revised
+
+experiments: []
+
+# 示例（归档时删除或保留作参考）:
+# - id: exp-2026-05-29-001
+#   created: 2026-05-29
+#   topic: 自媒体起步
+#   type: behavior_activation
+#   hypothesis: "发出最小内容后焦虑下降，且不会证明我不行"
+#   action: "23:00 发布 300 字+1 图"
+#   due: 2026-05-29
+#   status: pending
+#   metrics:
+#     anxiety_before: null
+#     anxiety_after: null
+#   outcome_note: ""
+#   session_archive: archive/2026-05-29-自媒体起步.md

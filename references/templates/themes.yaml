@@ -1,0 +1,16 @@
+# 议题纵向追踪 — 每次 session 归档时更新
+# 详见 references/themes.md（第三圈规则）
+
+themes: []
+
+# 示例:
+# - slug: habit-start
+#   title: 起步与拖延
+#   aliases: []
+#   sessions_count: 0
+#   first_seen: 2026-05-31
+#   last_seen: 2026-05-31
+#   status: active
+#   linked_archives: []
+#   linked_experiment_ids: []
+#   lap_note: ""
