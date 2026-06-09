@@ -1,3 +1,11 @@
 .DS_Store
 *.swp
 local-tests/
+
+# Cursor local configuration
+.cursor/
+.cursorindexingignore
+.cursorignore
+
+# SpecStory (Cursor session autosave)
+.specstory/
