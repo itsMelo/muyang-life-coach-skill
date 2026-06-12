@@ -4,6 +4,20 @@
 
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)。
 
+## [0.6.2] - 2026-06-11
+
+### Changed
+
+- 新增 `references/humanizer-quick.md`（~110 行）：合并原 humanizer-pass 教练语气规则 + 教练场景 Top 12 AI 味扫描 + 7 问终检
+- 日常回复终检改为只 Read `humanizer-quick.md`；完整 bundled humanizer（582 行）仅在长文、用户投诉 AI 味、或 quick pass 不过关时读取
+- `SKILL.md`、`session.md`、`follow-up.md`、`weekly-summary.md` 引用已更新
+- `humanizer-pass.md` 改为指向 humanizer-quick 的兼容指针
+
+### 用户升级说明
+
+- 无需改工作区文件；重新 sync / attach skill 即可
+- 教练回复质量规则不变，context 消耗显著降低（每条回复约少 ~650 行 reference 读取）
+
 ## [0.6.1] - 2026-06-07
 
 ### Changed

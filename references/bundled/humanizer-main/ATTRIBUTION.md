@@ -5,22 +5,15 @@ This directory vendors the complete `humanizer-main` skill into
 
 Why it is bundled:
 
-- Users only need to install and attach `muyang-life-coach-skill`.
-- The coach can use the full humanizer rules without requiring a second skill.
-- The bundled `SKILL.md` remains the source for AI-writing cleanup behavior.
+- Users only need to attach `muyang-life-coach-skill`.
+- The coach can run deep humanizer rules without a second skill install.
+- The bundled `SKILL.md` remains the source for full AI-writing cleanup.
 
-How the coach uses it:
+## How the coach uses it
 
-1. Draft the coaching response with `references/session.md`.
-2. Run the full humanizer pass from `references/bundled/humanizer-main/SKILL.md`.
-3. Apply the coach-specific layer from `references/humanizer-pass.md`.
-4. Send only the final user-facing response.
+1. **Default:** Read `references/humanizer-quick.md` before every user-facing reply.
+2. **Upgrade:** Read this file (`references/bundled/humanizer-main/SKILL.md`) only when
+   `humanizer-quick.md` escalation conditions apply (long copy, user asks for de-AI-ing,
+   or quick pass still sounds templated).
 
-Bundled files:
-
-- `SKILL.md`
-- `README.md`
-- `LICENSE`
-- `AGENTS.md`
-
-License: see `LICENSE` in this directory.
+Do not read the full 582-line skill on routine coaching turns.

@@ -157,7 +157,7 @@ skill 不能真正定时推送。
 
 ## 语气
 
-遵守 `session.md` 和 `humanizer-pass.md`。
+遵守 `session.md` 和 `humanizer-quick.md`。
 
 每周总结要像一个熟悉他的朋友帮他回看这一周，不像绩效周报。
 

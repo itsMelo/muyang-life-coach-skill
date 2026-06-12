@@ -1,6 +1,6 @@
 ---
 name: muyang-life-coach-skill
-version: 0.6.1
+version: 0.6.2
 description: >
   Muyang Life Coach — personalized AI life coach OS with persistent profile, experiments ledger, open loops,
   and cross-session patterns. Invoke for coaching, reflection, decision support, emotional
@@ -89,9 +89,7 @@ done
 9. 若用户触发漫谈：Read **`references/casual-chat.md`**；普通闲聊不强制归档，只有新事实/新模式/新待办才同步状态
 10. 若 7 非 weekly/casual：Read **`references/session.md`** 并执行教练弧
 11. 若用户表达「不知道 / 矛盾 / 为什么会这样 / 我是不是…」，或信息不足、高赌注、动机不清：Read **`references/follow-up.md`** 并进入追问流程（最多 3 轮，之后必须收敛）
-12. **终检（发送前强制，两层均在包内）**：
-   - Read **`references/bundled/humanizer-main/SKILL.md`**（完整 bundled humanizer-main）
-   - Read **`references/humanizer-pass.md`**（教练叠加层：先共鸣后方案）
+12. **终检（发送前强制）**：Read **`references/humanizer-quick.md`** 并对草稿做静默终检；仅当 quick 内「升级条件」满足时才 Read **`references/bundled/humanizer-main/SKILL.md`**
 13. **补充上下文**（仅当 1–5 不足判断未闭合议题时）：
 
 ```bash
@@ -127,11 +125,11 @@ done
 
 **拟稿后、发送前（强制）**：
 
-1. 按 `references/bundled/humanizer-main/SKILL.md` 完整流程做 AI 味终检（draft → audit → final）。
-2. 再按 `references/humanizer-pass.md` 校准教练语气：朋友层共鸣 → 学科/模式解释 → 教练层行动，温情、口语、重点清楚。
+1. 按 `references/humanizer-quick.md` 做静默终检（draft → audit → final）：去 AI 味 + 教练三段式 + 中文语气。
+2. 若触发 quick 内「升级条件」，再 Read 完整 `references/bundled/humanizer-main/SKILL.md`。
 3. 仅把终稿发给用户。不要把草稿、自检或改写过程发给用户，除非用户明确要求对比。
 
-**用户正文**全程遵守 `session.md`「用户可见层」+ 上述两层终检。
+**用户正文**全程遵守 `session.md`「用户可见层」+ `humanizer-quick.md` 终检。
 
 ---
 
@@ -220,8 +218,8 @@ Skill 自身路径（playbooks / templates）：`~/.claude/skills/muyang-life-co
 - 每次 session 尽量让用户 **带着一件待办小行动离开**（内部记 experiment；用户只听具体动作）
 - **用户可见层**：回复正文禁止 Skill 内部术语，见 `session.md`
 - 危机 / 自伤 → 仅热线，停止教练（见 `session.md`）
-- 语气：见 `session.md` Tone + `references/bundled/humanizer-main/SKILL.md` + `references/humanizer-pass.md`
-- 产品化：humanizer-main 已完整 bundled 到本 skill 包，用户只 attach 本 skill 即可
+- 语气：见 `session.md` Tone + `references/humanizer-quick.md`（默认）；长文/升级时再读 bundled humanizer-main
+- 产品化：humanizer-quick 覆盖日常教练终检；完整 humanizer-main 仍 bundled 供升级场景使用
 
 ---
 
@@ -234,8 +232,9 @@ Skill 自身路径（playbooks / templates）：`~/.claude/skills/muyang-life-co
 | `references/casual-chat.md` | 漫谈：无明确问题时关心近况、发现新材料 |
 | `references/weekly-summary.md` | 每周总结：情绪/行动/模式/下周重点 |
 | `references/follow-up.md` | 追问能力：信息不足/矛盾/高赌注时澄清到底层原因 |
-| `references/bundled/humanizer-main/SKILL.md` | 完整 bundled humanizer-main（第一层终检） |
-| `references/humanizer-pass.md` | 教练叠加层（第二层：先共鸣后方案） |
+| `references/humanizer-quick.md` | 默认终检：去 AI 味 + 教练语气（~120 行） |
+| `references/bundled/humanizer-main/SKILL.md` | 完整 humanizer（长文/升级场景） |
+| `references/humanizer-pass.md` | 已合并进 humanizer-quick（兼容指针） |
 | `references/review-weekly.md` | 周回顾 |
 | `references/playbooks/*.md` | 领域加深 |
 | `references/themes.md` | 议题追踪 + 第三圈规则 |
